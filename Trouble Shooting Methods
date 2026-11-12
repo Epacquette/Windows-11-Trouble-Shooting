@@ -1,3 +1,172 @@
-Lorem ipseifjhioehjf
-efnieifnioenoif
-enfienieineefefeef
+# Windows 11 Troubleshooting Methods
+
+This guide provides a practical approach for diagnosing and resolving common Windows 11 issues. Use this as a quick-reference checklist for support and IT troubleshooting.
+
+## 1. Start with the basics
+
+Before changing settings or reinstalling software, confirm the symptom and gather facts:
+
+- What is the exact error message?
+- When did the problem begin?
+- Did it happen after an update, software install, new hardware, or network change?
+- Is the issue affecting one user, one device, or multiple devices?
+- Is it a hardware, software, network, or account issue?
+
+## 2. Check the simplest causes first
+
+### Power and startup
+- Verify the device is receiving power.
+- Check cables, battery level, and docking station connections.
+- Confirm the monitor is powered on and connected.
+- If the system is stuck on startup, restart and check for boot recovery options.
+
+### Network connectivity
+- Confirm Wi-Fi or Ethernet is enabled.
+- Test if other devices can connect to the same network.
+- Restart the modem/router if the issue affects multiple devices.
+- Run a quick speed test or ping test to confirm connectivity.
+
+### Peripheral devices
+- Disconnect USB devices, printers, external drives, and docking stations.
+- Test with minimal hardware to isolate the issue.
+- Check for driver warnings in Device Manager.
+
+## 3. Use a structured troubleshooting workflow
+
+### A. Check log and status information
+- Open Event Viewer and review critical warnings/errors.
+- Use Reliability Monitor to identify recent failures.
+- Check Task Manager for high CPU, memory, or disk usage.
+- Review Windows Update history for failed patches.
+
+### B. Verify account and access issues
+- Confirm the user can sign in with the correct password and account type.
+- Test another local account if a profile issue is suspected.
+- Check whether the problem occurs only for one user profile.
+- Ensure the user has proper local/admin permissions if required.
+
+### C. Examine software and startup programs
+- Uninstall recent applications or updates that coincide with the issue.
+- Disable non-essential startup apps in Task Manager.
+- Check for malware using Windows Security or a trusted endpoint solution.
+- Confirm app updates are installed and compatible with Windows 11.
+
+## 4. Windows 11-specific troubleshooting checks
+
+### System performance issues
+- Open Task Manager and check for high CPU or memory load.
+- Disable unnecessary startup apps.
+- Free up disk space if storage is nearly full.
+- Run Disk Cleanup or Storage Sense.
+- Check for background updates or scheduled tasks consuming resources.
+
+### Slow boot or startup problems
+- Use Safe Mode to isolate third-party software issues.
+- Open msconfig and review startup items.
+- Check if services are failing during startup.
+- Review startup logs in Event Viewer.
+
+### Network or internet problems
+- Run the built-in Network Troubleshooter.
+- Forget and reconnect to Wi-Fi networks when needed.
+- Verify IP configuration using ipconfig.
+- Test DNS with nslookup.
+- Check whether the firewall or VPN is blocking traffic.
+
+### Audio issues
+- Confirm the correct playback device is selected.
+- Update audio drivers from Device Manager or the manufacturer website.
+- Restart the Windows Audio service.
+- Test headphones and different output devices.
+
+### Printer or device issues
+- Remove and reinstall the device if it is not responding.
+- Check the print queue for stuck jobs.
+- Ensure the correct driver is installed.
+- Test the printer on a different PC when possible.
+
+## 5. Use built-in Windows tools
+
+### System File Checker (SFC)
+Use this to repair damaged Windows system files:
+
+```cmd
+sfc /scannow
+```
+
+### Deployment Image Servicing and Management (DISM)
+Use this if system files are corrupt or updates fail:
+
+```cmd
+dism /online /cleanup-image /restorehealth
+```
+
+### Check network settings
+```cmd
+ipconfig /all
+ipconfig /release
+ipconfig /renew
+ping 8.8.8.8
+nslookup google.com
+```
+
+### Check disk health
+```cmd
+chkdsk /f
+```
+
+Note: `chkdsk` may require a reboot to complete if it is checking the system drive.
+
+## 6. Safe Mode troubleshooting
+
+Safe Mode helps isolate software and driver conflicts.
+
+Steps:
+1. Hold Shift and select Restart.
+2. Choose Troubleshoot > Advanced options > Startup Settings > Restart.
+3. Select Safe Mode or Safe Mode with Networking.
+4. Test whether the issue still occurs.
+5. If the issue disappears in Safe Mode, uninstall recent apps or drivers.
+
+## 7. Driver and update troubleshooting
+
+- Check for Windows updates in Settings > Windows Update.
+- Update or roll back problematic drivers in Device Manager.
+- Uninstall recently installed drivers that may have caused the issue.
+- Verify hardware compatibility with Windows 11.
+
+## 8. Recovery options
+
+If the problem cannot be resolved quickly, consider:
+- System Restore to a known-good restore point.
+- Startup Repair for boot-related problems.
+- Reset this PC as a last resort.
+- Backup important files before major recovery steps.
+
+## 9. Documentation and escalation
+
+For support tickets, document the following:
+- Device model and serial number
+- Windows version and build number
+- Error messages and timestamps
+- Recent updates or changes
+- Steps already taken
+- Results of each troubleshooting step
+
+This helps support teams avoid repeating steps and speeds up resolution.
+
+## 10. Quick troubleshooting summary
+
+Use this order for most issues:
+1. Confirm the exact symptom.
+2. Check power/network/peripherals.
+3. Review recent changes and updates.
+4. Check Task Manager, Event Viewer, and Reliability Monitor.
+5. Test in Safe Mode if needed.
+6. Repair system files and drivers.
+7. Use System Restore or recovery options if necessary.
+8. Document the issue and escalate if unresolved.
+
+## Final note
+
+Troubleshooting is most effective when it follows a consistent method: confirm, isolate, test, repair, and document. This keeps support efforts efficient and helps prevent repeat issues.
